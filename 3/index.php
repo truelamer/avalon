@@ -41,9 +41,7 @@ function listFolderFiles($dir, $ext)
                     listFolderFiles($dir.'/'.$file, $ext);
                 }
                 echo '</li>';
-
             }
-
         }
     }
     echo '</ol>';
