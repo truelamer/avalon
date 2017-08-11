@@ -15,37 +15,47 @@
 function listFolderFiles($dir, $ext)
 {
     $flag = false;
-    //echo $ext[1];
-    $ffs = scandir($dir);
+    $files = scandir($dir);
+
     echo '<ol>';
-    foreach($ffs as $ff)
+    foreach($files as $file)
     {
-        if($ff != '.' && $ff != '..')
+        if($file != '.' && $file != '..')
         {
-            foreach ($ext as $item)
+            if ($ext != "")
             {
-                if (pathinfo($ff, PATHINFO_EXTENSION) == $item)
+                foreach ($ext as $item)
                 {
-                    $flag = true;
+                    if (pathinfo($file, PATHINFO_EXTENSION) == $item)
+                    {
+                        $flag = true;
+                        break;
+                    }
                 }
             }
             if (!$flag)
             {
-                echo '<li>'.$ff;
-                if(is_dir($dir.'/'.$ff))
+                echo '<li>'.$file;
+                if(is_dir($dir.'/'.$file))
                 {
-                    listFolderFiles($dir.'/'.$ff, $ext);
+                    listFolderFiles($dir.'/'.$file, $ext);
                 }
                 echo '</li>';
+
             }
+
         }
     }
     echo '</ol>';
 }
 
-if (isset($_GET['ext']))
+if ($_GET['ext'] != "")
 {
     $ext = explode(" ", $_GET['ext']);
+}
+else
+{
+    $ext = "";
 }
 if (isset($_GET['path']))
 {
