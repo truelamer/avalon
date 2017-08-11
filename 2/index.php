@@ -40,7 +40,6 @@ if (isset ($_GET['dim']))
         for ($j = 0; $i+$j < $n; $j++)
         {
             array_push($tmp_arr, $arr[$i+$j][$j]);
-
         }
         if ($i % 2 == 1)
         {
@@ -82,7 +81,6 @@ if (isset ($_GET['dim']))
         }
         $diag_count++;
         $tmp_arr = array();
-
     }
 
     //переводим финал в одномерный массив
@@ -99,13 +97,11 @@ if (isset ($_GET['dim']))
     sort($arr_for_sort);
 
     //закидываем обратно в финал
-    $tet = 0;
     for ($i = 0; $i < count($final); $i++)
     {
         for ($j = 0; $j < count($final[$i]); $j++)
         {
             $final[$i][$j] = array_shift($arr_for_sort);
-            $tet++;
         }
     }
 
@@ -159,6 +155,6 @@ if (isset ($_GET['dim']))
 }
 ?>
 <form action="index.php" method="get">
-    <p>Размерность матрицы <input type="text" name="dim" /></p>
+    <p>Размерность матрицы <input type="text" name="dim"/></p>
     <p><input type="submit" /></p>
 </form>
