@@ -12,6 +12,8 @@
  * Time: 10:42
  */
 
+//error_reporting("E_ERROR");
+
 function listFolderFiles($dir, $ext)
 {
     $flag = false;
@@ -47,9 +49,12 @@ function listFolderFiles($dir, $ext)
     echo '</ol>';
 }
 
-if ($_GET['ext'] != "")
+if (isset($_GET['ext']))
 {
-    $ext = explode(" ", $_GET['ext']);
+    if ($_GET['ext'] != "")
+    {
+        $ext = explode(" ", $_GET['ext']);
+    }
 }
 else
 {

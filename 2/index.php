@@ -62,7 +62,6 @@ if (isset ($_GET['dim']))
     {
         for ($j = 0; $i+$j < $n; $j++)
         {
-
             array_push($tmp_arr,$arr[$j][$i+$j]);
         }
         if ($i % 2 == 1)
