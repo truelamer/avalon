@@ -6,7 +6,7 @@
  * Time: 9:16
  */
 
-error_reporting("E_ERROR");
+//error_reporting("E_ERROR");
 
 $link = "http://avalon.ru";
 $str = file_get_contents ($link);
